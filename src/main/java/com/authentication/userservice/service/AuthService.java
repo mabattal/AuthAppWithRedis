@@ -49,4 +49,12 @@ public class AuthService {
 
         return publicKey;
     }
+
+    public void logout(String publicKey) {
+        String privateKey = redisService.get(publicKey);
+        if (privateKey != null) {
+            redisService.delete(publicKey);
+            redisService.delete(privateKey);
+        }
+    }
 }
