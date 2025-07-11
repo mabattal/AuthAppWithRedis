@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/authDb
+    username: postgres
+    password: 1
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+jwt:
+  secret: 12345678901234567890123456789012
+  expiration: 3600000 # 1 saat
